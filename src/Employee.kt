@@ -2,7 +2,7 @@ class Employee (
     fullName: String,
     position: String,
     salary: Int,
-    yearsOfExperience: Int)
+    yearsOfExperience: Int) :ReportGenerator
 {
     var fullName: String=fullName
         get() = field
@@ -23,6 +23,10 @@ class Employee (
         set(value) {
             field=value.coerceIn(0,50)
         }
+
+    override fun generateReport(): String {
+        return "===Отчет о сотруднике===\n ФИО: $fullName\n Должность: $position\n Зарплата: $salary\n Опыт работы: $yearsOfExperience"
+    }
 }
 
 fun main() {
